@@ -18,6 +18,9 @@ export class WelcomeComponent implements OnInit {
   sayHello() {
     this.clickCount++;
     alert('Hallo, ' + this.name + '! Du bist ' + this.age + ' Jahre alt. ClickCount wurde '+this.clickCount+ ' mal gedrückt');
+    console.log('Test');
+
+
 
   }
 

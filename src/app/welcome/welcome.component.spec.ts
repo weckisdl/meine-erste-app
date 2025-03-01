@@ -34,6 +34,8 @@ describe('WelcomeComponent', () => {
     expect(compiled.querySelector('p').textContent).toContain('Hallo, Wecki!');
   });
 
+  console.log('Test');
+
 
 
 
