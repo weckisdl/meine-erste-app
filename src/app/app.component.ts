@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NameService } from './name.service';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Hallo, ich lerne Angular!';
-  name: string = ''; // Variable für den Namen, initial leer
+  constructor(private nameService: NameService) {}
 
-
-  toBigLetter(){
-     this.name = this.name.toUpperCase();
-
-
+  get name(): string {
+    return this.nameService.getName();
   }
 
+  set name(value: string) {
+    this.nameService.setName(value);
+  }
+
+  toUpperCase() {
+    this.nameService.toUpperCase();
+  }
+  get history(): string[] {
+    return this.nameService.getHistory();
+  }
 
 }

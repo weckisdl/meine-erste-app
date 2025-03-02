@@ -1,3 +1,7 @@
 <h1>Willkommen, {{ name || 'Fremder' }}!</h1>
 <input type="text" placeholder="Gib deinen Namen ein" [(ngModel)]="name">
-<button  type="button" (click)="toBigLetter()" >To Upper Case</button>
+<button  type="button" (click)="toUpperCase()" >To Upper Case</button>
+<p>Aktueller Name: {{ name }}</p>
+<ul>
+  <li *ngFor="let pastName of history">{{ pastName }}</li>
+</ul>
