@@ -12,8 +12,10 @@ export class NameService {
   }
 
   setName(newName: string) {
-    this.name = newName;
-  }
+    if (newName && newName !== this.name) {
+      this.nameHistory.push(this.name);
+      this.name = newName;
+    }}
 
   toUpperCase(): string {
     this.name = this.name.toUpperCase();

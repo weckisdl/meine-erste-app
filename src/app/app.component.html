@@ -4,4 +4,7 @@
 <p>Aktueller Name: {{ name }}</p>
 <ul>
   <li *ngFor="let pastName of history">{{ pastName }}</li>
+
 </ul>
+ 
+<input type="text" [ngModel]="name" (ngModelChange)="setNameToUpperCase($event.toUpperCase())" >
