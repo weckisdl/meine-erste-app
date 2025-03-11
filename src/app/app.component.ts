@@ -8,10 +8,12 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private nameService: NameService) {
-    
-  }
-  
+  constructor(private nameService: NameService) {}
+   title = "Hallo, ich lerne Angular!"
+   inputName = '';
+   userName = "";
+   iban = "";
+
   get name(): string {
     return this.nameService.getName();
   }
@@ -23,8 +25,8 @@ export class AppComponent {
   toUpperCase() {
     this.nameService.toUpperCase();
   }
-  get history(): string[] {
-    return this.nameService.getHistory();
+  get names(): string[] {
+    return this.nameService.getNames(); // Historie holen
   }
 
 
@@ -35,7 +37,12 @@ export class AppComponent {
 
   }
 
-   
+  saveName() { // Neu: Methode zum Speichern
+    if (this.inputName) {
+      this.name = this.inputName; // Setzt den Namen im Service
+      this.inputName = '';        // Leert das Eingabefeld
+    }
+  }
 
 
 }

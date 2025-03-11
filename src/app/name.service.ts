@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class NameService {
   private name: string = ''; // Privat, nur der Service verwaltet das
-  private nameHistory: string[] = []; // Neu: Historie
+  private names: string[] = []; // Neu: Historie
 
   getName(): string {
     return this.name;
@@ -13,7 +13,7 @@ export class NameService {
 
   setName(newName: string) {
     if (newName && newName !== this.name) {
-      this.nameHistory.push(this.name);
+      if(this.name){this.names.push(this.name)};
       this.name = newName;
     }}
 
@@ -22,8 +22,8 @@ export class NameService {
     return this.name;
   }
 
-  getHistory(): string[] {
-    return this.nameHistory;
+  getNames(): string[] {
+    return this.names;
   }
 
   constructor() { }

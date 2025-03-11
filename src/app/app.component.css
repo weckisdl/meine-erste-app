@@ -1,0 +1,6 @@
+input.iban:invalid {
+    border: 2px solid red;
+  }
+  input.iban:valid {
+    border: 2px solid green;
+  }
