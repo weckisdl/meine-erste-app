@@ -1,6 +1,11 @@
-input.iban:invalid {
-    border: 2px solid red;
-  }
-  input.iban:valid {
-    border: 2px solid green;
-  }
+input[name="iban"]:invalid {
+  border: 2px solid red;
+}
+
+input[name="iban"]:valid {
+  border: 2px solid green;
+}
+
+input[name="username"]:invalid {
+  border: 2px solid purple;
+}

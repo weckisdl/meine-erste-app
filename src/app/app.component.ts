@@ -8,11 +8,9 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private nameService: NameService) {}
-   title = "Hallo, ich lerne Angular!"
-   inputName = '';
-   userName = "";
-   iban = "";
+  constructor(private nameService: NameService) { }
+  inputName = '';
+  filterText: string = '';
 
   get name(): string {
     return this.nameService.getName();
@@ -22,27 +20,44 @@ export class AppComponent {
     this.nameService.setName(value);
   }
 
-  toUpperCase() {
-    this.nameService.toUpperCase();
-  }
   get names(): string[] {
     return this.nameService.getNames(); // Historie holen
   }
-
-
- setNameToUpperCase(value: string){
-
-      this.nameService.setName(value.toUpperCase());
-
-
-  }
-
   saveName() { // Neu: Methode zum Speichern
     if (this.inputName) {
+
       this.name = this.inputName; // Setzt den Namen im Service
       this.inputName = '';        // Leert das Eingabefeld
     }
   }
 
+  removeName(index: number) {
+    this.nameService.removeName(index);
+  }
+
+  replaceName(index: number, newName: string) {
+    this.nameService.replaceName(index, newName);
+  }
+
+  sortNames() {
+    this.nameService.sortNames();
+  }
+
+
+
+  get filteredNames(): string[] {
+    return this.nameService.filterNames(this.filterText);
+  }
+
+  setNameToUpperCase(value: string) {
+
+    this.nameService.setName(value.toUpperCase());
+
+
+  }
+
+  toUpperCase() {
+    this.nameService.toUpperCase();
+  }
 
 }

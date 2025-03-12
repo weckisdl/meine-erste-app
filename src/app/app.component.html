@@ -1,29 +1,29 @@
-<!-- <app-welcome></app-welcome>  -->
- 
-<<form #myForm="ngForm">
-  <input [(ngModel)]="iban" name="iban" required pattern="[A-Z]{2}[0-9]{4}" #ibanCtrl="ngModel" />
-  <p>{{ ibanCtrl.value }} | {{ ibanCtrl.valid ? 'OK' : 'Fehler' }}</p>
-</form>
 <!--
 <form #myForm="ngForm">
-  <input [(ngModel)]="name" name="name" required #nameInput="ngModel" />
-  <span *ngIf="nameInput.invalid">Ungültig</span>
-</form>
-
-
-
-<h1>Willkommen, {{ name || 'Fremder' }}!</h1>
-<input type="text" placeholder="Dein Name" [(ngModel)]="inputName" (keyup.enter)="saveName()">
-<button  type="button" (click)="toUpperCase()" >To Upper Case</button>
+  <h1>Willkommen, {{ name || 'Fremder' }}!</h1>
+  <input type="text"    placeholder="Neuer Name" name="inputControl" [(ngModel)]="inputName"  (keyup.enter)="saveName()">
+  <input [(ngModel)]="filterText" placeholder="Filter (z. B. 'a')" />
+   <button (click)="saveName()">Speichern</button>
+  <p>Aktueller Name: {{ name }}</p>
+  <ul>
+    <li *ngFor="let pastName of filteredNames; let i = index">
+      {{ pastName }}
+      <button (click)="removeName(i)">Löschen</button>
+      <button (click)="replaceName(i, 'Ersatz')">Ersetzen</button>
+    </li>
+  </ul>
+</form>-->
+<input [(ngModel)]="inputName" (keyup.enter)="saveName()" placeholder="Neuer Name" />
+<button (click)="saveName()">Speichern</button>
 <p>Aktueller Name: {{ name }}</p>
+<input [(ngModel)]="filterText" placeholder="Filter (z. B. 'a')" />
+<button (click)="sortNames()">Sortieren</button>
 <ul>
-  <li *ngFor="let pastName of names">{{ pastName }}</li>
-
+  <li *ngFor="let pastName of filteredNames; let i = index">
+    {{ pastName }}
+    <button (click)="removeName(i)">Löschen</button>
+    <button (click)="replaceName(i, 'Ersatz')">Ersetzen</button>
+  </li>
 </ul>
+
  
-<input type="text" [ngModel]="name" (ngModelChange)="setNameToUpperCase($event.toUpperCase())" >
-
-
-
-
--->
